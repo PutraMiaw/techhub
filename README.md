@@ -116,3 +116,8 @@ Route tidak ditemukan (`*`) akan redirect ke Home.
 |              | @types/react-dom     | ^19.2.3 |
 
 Styling menggunakan CSS vanilla (global di `App.css` dan komponen masing-masing).
+
+## URL
+
+1. https://putramiaw.github.io/techhub/
+2. https://putramiaw.github.io/techhub/admin/login
