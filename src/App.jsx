@@ -10,7 +10,7 @@ import { NotificationProvider } from "./context/NotificationContext";
 import { AuthProvider } from "./context/AuthContext";
 
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Footer from "./components/footer";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
