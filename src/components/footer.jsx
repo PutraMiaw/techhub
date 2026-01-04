@@ -27,7 +27,6 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} TechHub. All rights reserved.</p>
-        <p>UAS Front-End Development - Aplikasi E-Commerce Electronics</p>
       </div>
     </footer>
   );
