@@ -1,149 +1,118 @@
-# LAPORAN UAS FRONT-END DEVELOPMENT
+# TechHub
 
-## APLIKASI TOKO ONLINE E-COMMERCE "TECHHUB"
+TechHub adalah aplikasi e-commerce sederhana berbasis React + Vite yang menyediakan pengalaman belanja online untuk pelanggan serta panel admin untuk pengelolaan dasar.
 
-### IDENTITAS MAHASISWA
+Proyek ini masih dalam tahap pengembangan awal — beberapa fitur admin seperti pengelolaan produk dan user masih berstatus coming soon.
 
-- Nama: Tangguh Putra Mahardika
-- NIM: 2404028
-- Kelas: 2 Teknologi Infromasi
-- Program Studi: Pemrograman FrontEnd
-- Dosen Pengampu: Prayogo, S.Kom., M.Kom.
+## 📂 Struktur Folder
 
-### 1. TUJUAN PROYEK
+tech-hub/
+├── public/
+│ └── vite.svg
+├── src/
+│ ├── assets/
+│ ├── components/
+│ │ ├── Banner.jsx
+│ │ ├── CartItem.jsx
+│ │ ├── Footer.jsx
+│ │ ├── Header.jsx
+│ │ ├── Notification.jsx
+│ │ └── ProductCard.jsx
+│ ├── context/
+│ │ ├── AuthContext.jsx
+│ │ ├── CartContext.jsx
+│ │ └── NotificationContext.jsx
+│ ├── data/
+│ │ └── products.json
+│ │ └── users.json
+│ ├── pages/
+│ │ ├── AdminDashboard.jsx
+│ │ ├── AdminLayout.jsx
+│ │ ├── AdminLogin.jsx
+│ │ ├── AdminSidebar.jsx
+│ │ ├── Cart.jsx  
+│ │ ├── Checkout.jsx
+│ │ ├── Home.jsx
+│ │ ├── ProductDetail.jsx
+│ │ ├── Products.jsx
+│ │ ├── UserLogin.jsx
+│ │ └── UserRegister.jsx
+│ ├── App.css (styling global)
+│ ├── App.jsx
+│ ├── index.css
+│ └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+└── vite.config.js
 
-Membangun aplikasi toko online (e-commerce) front-end yang modern, responsif, dan user-friendly dengan implementasi fitur-fitur esensial e-commerce seperti manajemen produk, keranjang belanja, checkout, dan sistem notifikasi.
+## 🌟 Fitur Utama
 
-### 2. TEKNOLOGI YANG DIGUNAKAN
+### Untuk Pelanggan (User)
 
-- React 19.2.1 - Library JavaScript terbaru untuk building UI
-- Vite 7.2.7 - Build tool dan development server yang cepat
-- React Router DOM 7.10.1 - Untuk routing dan navigasi SPA
-- Context API - State management (Cart, Notification)
-- CSS3 - Styling dengan CSS modern dan responsive design
-- JSON - Data produk statis
-- Git & GitHub - Version control dan hosting kode
-- Vercel - Platform deployment
+- Home Page – Tampilan utama dengan rekomendasi produk
+- Products Page – Daftar semua produk
+- Product Detail – Detail produk berdasarkan ID
+- Cart – Kelola keranjang belanja
+- Checkout – Proses checkout (simulasi)
+- Authentication
+  - Login
+  - Register
+- Notification System – Notifikasi global (contoh: berhasil tambah ke cart)
 
-### 3. STRUKTUR FOLDER
+### Untuk Admin
 
-src/
-├── assets/ # Gambar dan aset statis
-├── components/ # Komponen reusable
-│ ├── Banner.jpx
-│ ├── CartItem.jpx
-│ ├── Footer.jpx
-│ ├── Header.jpx
-│ ├── Notification.jpx
-│ └── ProductCard.jpx
-├── context/ # Context untuk state management
-│ ├── CartContext.jpx
-│ └── NotificationContext.jpx
-├── data/ # Data produk
-│ └── products.json
-├── pages/ # Halaman aplikasi
-│ ├── Cart.jpx
-│ ├── Checkout.jpx
-│ ├── Home.jpx
-│ ├── ProductDetail.jpx
-│ └── Products.jpx
-├── App.jpx # Komponen utama
-├── main.jpx Entry point
-├── index.css # Global styles
-└── App.css # Component styles
+- Admin Login – Autentikasi terpisah
+- Admin Dashboard – Ringkasan dan navigasi admin
+- Protected Routes – Semua route admin dilindungi dengan `RequireAdmin`
+- Admin Layout – Header dan sidebar khusus admin (tanpa header/footer user biasa)
+- Fitur pengelolaan (Products, Users, Reports) → Coming soon
 
-### 4. FITUR YANG DIIMPLEMENTASIKAN
+### State Management
 
-#### 4.1 Halaman Beranda (Home.jsx)
+- `AuthContext` – Mengelola status login user & admin
+- `CartContext` – Mengelola keranjang belanja
+- `NotificationContext` – Mengelola notifikasi sementara
 
-- Banner promosi dengan desain modern
-- Navigasi header dengan logo dan menu
-- Display produk terbaru
-- Responsif di semua device
+### Routing
 
-#### 4.2 Halaman Produk (Products.jsx)
+Menggunakan React Router DOM v6 dengan route sebagai berikut:
 
-- Grid layout produk (≥10 produk)
-- Fitur pencarian produk
-- Filter berdasarkan kategori
-- Product card dengan informasi lengkap
-- Responsive grid (mobile: 1 kolom, desktop: 4 kolom)
+User routes
 
-#### 4.3 Halaman Detail Produk (ProductDetail.jsx)
+- `/` → Home
+- `/products` → Daftar produk
+- `/product/:id` → Detail produk
+- `/cart` → Keranjang
+- `/checkout` → Checkout
+- `/login` → Login user
+- `/register` → Register user
 
-- Detail lengkap produk
-- Gambar produk dengan fallback
-- Informasi stok dan harga
-- Fitur keunggulan produk
-- Tombol "Tambah ke Keranjang" dan "Beli Sekarang"
-- Fully responsive dengan layout yang berbeda di mobile/desktop
+Admin routes
 
-#### 4.4 Halaman Keranjang (Cart.jsx)
+- `/admin/login` → Login admin
+- `/admin/dashboard` → Dashboard admin
+- `/admin/products` → (coming soon)
+- `/admin/users` → (coming soon)
+- `/admin/reports` → (coming soon)
 
-- Tampilan item dalam keranjang
-- Quantity controls (tambah/kurang/hapus)
-- Perhitungan otomatis (subtotal, ongkir, total)
-- Progress bar gratis ongkir
-- Ringkasan pesanan
-- Fully responsive dengan tampilan mobile-friendly
+Route tidak ditemukan (`*`) akan redirect ke Home.
 
-#### 4.5 Halaman Checkout (Checkout.jsx)
+## 🛠️ Teknologi & Dependencies
 
-- Form data pengiriman dengan validasi
-- Ringkasan pesanan
-- Pilihan metode pembayaran
-- Validasi form (email, telepon, alamat)
-- Modal konfirmasi sukses
-- Fully responsive dengan form yang mudah diisi di mobile
+| Kategori     | Paket                | Versi   |
+| ------------ | -------------------- | ------- |
+| Runtime      | react                | ^19.2.0 |
+|              | react-dom            | ^19.2.0 |
+| Routing      | react-router-dom     | ^7.10.1 |
+| Build Tool   | vite                 | ^7.2.4  |
+| React Plugin | @vitejs/plugin-react | ^5.1.1  |
+| Deployment   | gh-pages             | ^6.3.0  |
+| Linting      | eslint               | ^9.39.1 |
+| Types        | @types/react         | ^19.2.5 |
+|              | @types/react-dom     | ^19.2.3 |
 
-#### 4.6 Fitur Tambahan
-
-- Sistem Notifikasi - Notifikasi real-time untuk aksi user
-- Cart Context - State management untuk keranjang global
-- Responsive Design - Optimal di mobile, tablet, desktop
-- Error Handling - Fallback untuk gambar error
-- Loading States - Feedback visual untuk loading
-
-### 6. LINK DEPLOY
-
-Aplikasi Live `https://tech-hub-yourname.vercel.app`
-Repository GitHub `https://github.com/username/tech-hub`
-
-### 7. IMPLEMENTASI RESPONSIVE DESIGN
-
-Aplikasi telah dioptimalkan untuk semua perangkat:
-
-#### Mobile (≤ 768px)
-
-- Single column layout
-- Touch-friendly buttons (min 44x44px)
-- Font size optimal untuk readability
-- Form inputs dengan font size 16px (cegah zoom)
-- Navigation yang sederhana
-
-#### Tablet (769px - 1024px)
-
-- Grid layout yang lebih longgar
-- Dua kolom untuk detail produk
-- Font size yang proporsional
-
-#### Desktop (> 1024px)
-
-- Multi-column layout
-- Sidebar untuk keranjang/checkout
-- Optimal use of white space
-- Hover effects dan interaksi mouse
-
-### 9. KESIMPULAN
-
-Aplikasi toko online "TechHub" telah berhasil dibangun dengan memenuhi semua requirement tugas UAS Front-End Development. Aplikasi ini menampilkan:
-
-1.  UI/UX Modern & Responsif - Optimal di semua device
-2.  Fitur E-Commerce Lengkap - Produk, Cart, Checkout
-3.  Routing & Navigasi - Multi-halaman dengan React Router
-4.  Interaktivitas - Add to cart, quantity control, notifications
-5.  Struktur Kode yang Rapi - Modular components dan clean code
-6.  Validasi Form - Checkout form validation
-7.  Deployment Berhasil - Aplikasi live di Vercel
-
-Aplikasi ini siap digunakan dan menunjukkan kemampuan dalam mengimplementasikan konsep-konsep front-end development modern.
+Styling menggunakan CSS vanilla (global di `App.css` dan komponen masing-masing).
