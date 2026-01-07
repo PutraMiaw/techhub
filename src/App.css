@@ -1348,3 +1348,63 @@ body {
     display: flex;
   }
 }
+/* ==================== ADMIN TABLE - RESPONSIVE MOBILE ==================== */
+.admin-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
+}
+
+@media (max-width: 768px) {
+  /* Sembunyikan tabel asli di mobile */
+  .admin-table {
+    display: none;
+  }
+
+  /* Ganti dengan card stacked */
+  .admin-table-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .admin-table-mobile {
+    display: none;
+  }
+}
+
+/* Card untuk setiap row di mobile */
+.admin-table-row-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table-row-card h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: #1e40af;
+}
+
+.admin-table-row-card dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.admin-table-row-card dt {
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-table-row-card dd {
+  margin: 0;
+  color: #4b5563;
+}
+
+.admin-table-row-card .actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}

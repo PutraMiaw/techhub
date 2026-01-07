@@ -11,7 +11,7 @@ const AdminDashboard = () => {
         </div>
         <div className="stat-card">
           <h3>Total User</h3>
-          <p className="stat-number">156</p>
+          <p className="stat-number">1</p>
         </div>
         <div className="stat-card">
           <h3>Pending Order</h3>

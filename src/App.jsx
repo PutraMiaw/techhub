@@ -25,6 +25,9 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminLayout from "./pages/AdminLayout";
 import AdminDashboard from "./pages/AdminDashboard";
 import RequireAdmin from "./components/RequireAdmin";
+import AdminProducts from "./pages/AdminProducts";
+import AdminUsers from "./pages/AdminUsers";
+import AdminReports from "./pages/AdminReports";
 
 import "./App.css";
 
@@ -55,7 +58,7 @@ function AppContent() {
             <Route index element={<Navigate to="/admin/login" replace />} />
             <Route path="login" element={<AdminLogin />} />
 
-            {/* Protected Admin Routes - pakai AdminLayout yang sudah ada AdminHeader */}
+            {/* Protected Admin Routes */}
             <Route
               element={
                 <RequireAdmin>
@@ -64,33 +67,9 @@ function AppContent() {
               }
             >
               <Route path="dashboard" element={<AdminDashboard />} />
-              <Route
-                path="products"
-                element={
-                  <div className="admin-page">
-                    <h2>Kelola Produk</h2>
-                    <p>Coming soon...</p>
-                  </div>
-                }
-              />
-              <Route
-                path="users"
-                element={
-                  <div className="admin-page">
-                    <h2>Kelola User</h2>
-                    <p>Coming soon...</p>
-                  </div>
-                }
-              />
-              <Route
-                path="reports"
-                element={
-                  <div className="admin-page">
-                    <h2>Laporan</h2>
-                    <p>Coming soon...</p>
-                  </div>
-                }
-              />
+              <Route path="products" element={<AdminProducts />} />
+              <Route path="users" element={<AdminUsers />} />
+              <Route path="reports" element={<AdminReports />} />
             </Route>
           </Route>
 
